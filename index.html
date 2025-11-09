@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KRUGER - L'Attitude du Luxe Urbain</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap');
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        .hero-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1543351611-58f69d7c1781?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 90vh;
+        }
+        
+        .product-card:hover .product-overlay {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .product-overlay {
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+        
+        .cart-badge {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            font-size: 10px;
+            width: 18px;
+            height: 18px;
+        }
+        
+        .size-selector input[type="radio"]:checked + label {
+            background-color: #b91c1c;
+            color: white;
+        }
+        
+        .mobile-menu {
+            transition: all 0.3s ease;
+            max-height: 0;
+            overflow: hidden;
+        }
+        
+        .mobile-menu.open {
+            max-height: 1000px;
+        }
+        
+        .newsletter-input:focus {
+            outline: none;
+            box-shadow: 0 0 0 2px #b91c1c;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <!-- Header -->
+    <header class="bg-black text-white sticky top-0 z-50 shadow-lg">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <!-- Logo -->
+            <div class="flex items-center">
+                <a href="#" class="text-2xl font-bold">
+                    <span class="text-red-600">KRUGER</span>
+                </a>
+            </div>
+            
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex space-x-8">
+                <div class="dropdown relative">
+                    <button class="hover:text-red-600 transition flex items-center">
+                        Nouveautés <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                    </button>
+                    <div class="dropdown-menu absolute hidden bg-white text-black mt-2 py-2 w-48 shadow-lg rounded">
+                        <a href="#" class="block px-4 py-2 hover:bg-gray-100">Toutes les nouveautés</a>
+                        <a href="#" class="block px-4 py-2 hover:bg-gray-100">Collections limitées</a>
+                    </div>
+                </div>
+                
+                <div class="dropdown relative">
+                    <button class="hover:text-red-600 transition flex items-center">
+                        Vêtements <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                    </button>
+                    <div class="dropdown-menu absolute hidden bg-white text-black mt-2 py-2 w-48 shadow-lg rounded">
+                        <a href="#" class="block px-4 py-2 hover:bg-gray-100">Ensembles</a>
+                        <a href="#" class="block px-4 py-2 hover:bg-gray-100">T-shirts</a>
+                        <a href="#" class="block px-4 py-2 hover:bg-gray-100">Maillots</a>
+                        <a href="#" class="block px-4 py-2 hover:bg-gray-100">Pantalons</a>
+                    </div>
+                </div>
+                
+                <div class="dropdown relative">
+                    <button class="hover:text-red-600 transition flex items-center">
+                        Accessoires <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                    </button>
+                    <div class="dropdown-menu absolute hidden bg-white text-black mt-2 py-2 w-48 shadow-lg rounded">
+                        <a href="#" class="block px-4 py-2 hover:bg-gray-100">Casquettes</a>
+                        <a href="#" class="block px-4 py-2 hover:bg-gray-100">Bijoux</a>
+                        <a href="#" class="block px-4 py-2 hover:bg-gray-100">Sacs</a>
+                        <a href="#" class="block px-4 py-2 hover:bg-gray-100">Montres</a>
+                    </div>
+                </div>
+                
+                <a href="#" class="hover:text-red-600 transition">À propos</a>
+                <a href="#" class="hover:text-red-600 transition">Contact</a>
+            </nav>
+            
+            <!-- Mobile Menu Button -->
+            <button class="md:hidden text-white focus:outline-none" id="mobile-menu-button">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+            
+            <!-- Icons -->
+            <div class="flex items-center space-x-6">
+                <div class="relative">
+                    <a href="#" class="text-white hover:text-red-600 transition">
+                        <i class="fas fa-search"></i>
+                    </a>
+                </div>
+                <div class="relative">
+                    <a href="#" class="text-white hover:text-red-600 transition">
+                        <i class="fas fa-user"></i>
+                    </a>
+                </div>
+                <div class="relative">
+                    <a href="#" class="text-white hover:text-red-600 transition">
+                        <i class="fas fa-shopping-bag"></i>
+                        <span class="cart-badge bg-red-600 rounded-full flex items-center justify-center">3</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div class="mobile-menu bg-black md:hidden" id="mobile-menu">
+            <div class="container mx-auto px-4 py-3">
+                <a href="#" class="block py-2 hover:text-red-600">Nouveautés</a>
+                <div class="pl-4">
+                    <a href="#" class="block py-2 text-gray-400 hover:text-red-600">Toutes les nouveautés</a>
+                    <a href="#" class="block py-2 text-gray-400 hover:text-red-600">Collections limitées</a>
+                </div>
+                <a href="#" class="block py-2 hover:text-red-600">Vêtements</a>
+                <div class="pl-4">
+                    <a href="#" class="block py-2 text-gray-400 hover:text-red-600">Ensembles</a>
+                    <a href="#" class="block py-2 text-gray-400 hover:text-red-600">T-shirts</a>
+                    <a href="#" class="block py-2 text-gray-400 hover:text-red-600">Maillots</a>
+                    <a href="#" class="block py-2 text-gray-400 hover:text-red-600">Pantalons</a>
+                </div>
+                <a href="#" class="block py-2 hover:text-red-600">Accessoires</a>
+                <div class="pl-4">
+                    <a href="#" class="block py-2 text-gray-400 hover:text-red-600">Casquettes</a>
+                    <a href="#" class="block py-2 text-gray-400 hover:text-red-600">Bijoux</a>
+                    <a href="#" class="block py-2 text-gray-400 hover:text-red-600">Sacs</a>
+                    <a href="#" class="block py-2 text-gray-400 hover:text-red-600">Montres</a>
+                </div>
+                <a href="#" class="block py-2 hover:text-red-600">À propos</a>
+                <a href="#" class="block py-2 hover:text-red-600">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section with FC Barcelona Jersey -->
+    <section class="hero-section flex items-center justify-center text-center text-white">
+        <div class="container mx-auto px-4">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6">KRUGER</h1>
+            <p class="text-xl md:text-2xl mb-8">L'Attitude du Luxe Urbain</p>
+            <a href="#collections" class="bg-red-600 hover:bg-red-700 text-white px-8 py-3 rounded-full font-medium transition inline-block">
+                Découvrir la collection
+            </a>
+        </div>
+    </section>
+
+    <!-- About Brand -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-8 md:mb-0 md:pr-8">
+                    <img src="https://images.unsplash.com/photo-1527719327859-c6ce80353573?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1476&q=80" 
+                         alt="KRUGER Brand" class="rounded-lg shadow-lg w-full">
+                </div>
+                <div class="md:w-1/2">
+                    <h2 class="text-3xl font-bold mb-6">L'Élégance Urbaine Réinventée</h2>
+                    <p class="text-gray-700 mb-4">
+                        KRUGER incarne l'alliance parfaite entre le streetwear audacieux et le raffinement du luxe. 
+                        Chaque pièce est conçue pour l'homme moderne qui ose affirmer son style sans compromis.
+                    </p>
+                    <p class="text-gray-700 mb-6">
+                        Nos collections exclusives allient des matières premium à des coupes impeccables, 
+                        pour un confort inégalé et une durabilité à toute épreuve.
+                    </p>
+                    <a href="#" class="text-red-600 font-medium hover:underline flex items-center">
+                        En savoir plus sur notre marque
+                        <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Collections -->
+    <section id="collections" class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Nos Collections</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Collection 1 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-lg group relative">
+                    <img src="https://images.unsplash.com/photo-1595341595379-cf2df1f6b648?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=
+</body>
+</html>
